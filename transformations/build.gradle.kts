@@ -1,7 +1,3 @@
-import dsl.compileSdk
-import dsl.minSdk
-import dsl.targetSdk
-
 plugins {
     id("com.android.library")
     id("kotlin-android")
@@ -9,10 +5,10 @@ plugins {
 }
 
 android {
-    compileSdkVersion(project.compileSdk)
+    compileSdkVersion(29)
     defaultConfig {
-        minSdkVersion(project.minSdk)
-        targetSdkVersion(project.targetSdk)
+        minSdkVersion(14)
+        targetSdkVersion(29)
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     compileOptions {

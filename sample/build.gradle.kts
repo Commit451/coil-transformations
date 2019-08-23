@@ -1,8 +1,3 @@
-import dsl.Library
-import dsl.compileSdk
-import dsl.targetSdk
-import dsl.versionCode
-import dsl.versionName
 import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
 plugins {
@@ -12,11 +7,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion(project.compileSdk)
+    compileSdkVersion(29)
     defaultConfig {
         applicationId = "com.commit451.coiltransformations.sample"
         minSdkVersion(21)
-        targetSdkVersion(project.targetSdk)
+        targetSdkVersion(29)
         versionCode = 1
         versionName = "1.0.0"
         resConfigs("en")
@@ -35,19 +30,21 @@ android {
     }
 }
 
+val lifecycleVersion = "2.0.0"
+
 dependencies {
     implementation(project(":transformations"))
     implementation(project(":transformations-gpu"))
 
     implementation(kotlin("stdlib", KotlinCompilerVersion.VERSION))
 
-    implementation(Library.ANDROIDX_APPCOMPAT)
-    implementation(Library.ANDROIDX_CONSTRAINT_LAYOUT)
-    implementation(Library.ANDROIDX_CORE)
-    implementation(Library.ANDROIDX_LIFECYCLE_EXTENSIONS)
-    implementation(Library.ANDROIDX_LIFECYCLE_LIVE_DATA)
-    implementation(Library.ANDROIDX_LIFECYCLE_VIEW_MODEL)
-    implementation(Library.ANDROIDX_RECYCLER_VIEW)
+    implementation("androidx.appcompat:appcompat:1.0.2")
+    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
+    implementation("androidx.core:core-ktx:1.0.2")
+    implementation("androidx.lifecycle:lifecycle-extensions:$lifecycleVersion")
+    implementation("androidx.lifecycle:lifecycle-livedata:$lifecycleVersion")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
+    implementation("androidx.recyclerview:recyclerview:1.0.0")
 
-    implementation(Library.MATERIAL)
+    implementation("com.google.android.material:material:1.0.0")
 }
