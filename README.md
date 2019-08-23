@@ -2,6 +2,9 @@
 
 Image transformations for Coil.
 
+[![Build Status](https://travis-ci.org/Commit451/coil-transformations.svg?branch=master)](https://travis-ci.org/Commit451/coil-transformations)
+[![](https://jitpack.io/v/Commit451/coil-transformations.svg)](https://jitpack.io/#Commit451/coil-transformations)
+
 ## Download
 
 Add this in your root `build.gradle` file (**not** your module `build.gradle` file):
