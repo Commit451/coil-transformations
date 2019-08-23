@@ -24,4 +24,4 @@ dependencies {
     api("io.coil-kt:coil:0.6.1")
 }
 
-apply ("https://raw.githubusercontent.com/Commit451/gradle-android-javadocs/1.0.0/gradle-android-javadocs.gradle")
+apply("https://raw.githubusercontent.com/Commit451/gradle-android-javadocs/1.0.0/gradle-android-javadocs.gradle")

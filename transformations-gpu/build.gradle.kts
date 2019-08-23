@@ -25,4 +25,4 @@ dependencies {
     api("jp.co.cyberagent.android:gpuimage:2.0.3")
 }
 
-apply ("https://raw.githubusercontent.com/Commit451/gradle-android-javadocs/1.0.0/gradle-android-javadocs.gradle")
+apply("https://raw.githubusercontent.com/Commit451/gradle-android-javadocs/1.0.0/gradle-android-javadocs.gradle")
