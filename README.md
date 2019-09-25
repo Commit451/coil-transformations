@@ -1,6 +1,6 @@
 # coil-transformations
 
-Image transformations for Coil.
+Image transformations for [Coil](https://github.com/coil-kt/coil).
 
 [![Build Status](https://travis-ci.org/Commit451/coil-transformations.svg?branch=master)](https://travis-ci.org/Commit451/coil-transformations)
 [![](https://jitpack.io/v/Commit451/coil-transformations.svg)](https://jitpack.io/#Commit451/coil-transformations)
@@ -124,7 +124,7 @@ Here, you can preview each of the type of filters.
 ![VignetteFilterTransformation](preview/images/vignette.png)
 
 ## Thanks
-Inspired by [Glide Transformations](https://github.com/wasabeef/glide-transformations) by [wasabeef](https://github.com/wasabeef)
+Inspired by [Glide Transformations](https://github.com/wasabeef/glide-transformations) by [wasabeef](https://github.com/wasabeef). Thanks of course to [Coil](https://github.com/coil-kt/coil) contributors for making a great image loading library.
 
 ## License
 
