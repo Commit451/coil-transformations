@@ -3,6 +3,7 @@ package com.commit451.coiltransformations
 import android.graphics.*
 import androidx.annotation.ColorInt
 import coil.bitmappool.BitmapPool
+import coil.size.Size
 import coil.transform.Transformation
 
 /**
@@ -15,7 +16,7 @@ class ColorFilterTransformation(
 
     override fun key(): String = "${ColorFilterTransformation::class.java.name}-$color"
 
-    override suspend fun transform(pool: BitmapPool, input: Bitmap): Bitmap {
+    override suspend fun transform(pool: BitmapPool, input: Bitmap, size: Size): Bitmap {
         val width = input.width
         val height = input.height
 

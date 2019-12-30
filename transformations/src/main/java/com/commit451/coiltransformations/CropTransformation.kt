@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.RectF
 import coil.bitmappool.BitmapPool
+import coil.size.Size
 import coil.transform.Transformation
 import kotlin.math.max
 
@@ -23,7 +24,7 @@ class CropTransformation(
 
     override fun key(): String = "${CropTransformation::class.java.name}-$cropType"
 
-    override suspend fun transform(pool: BitmapPool, input: Bitmap): Bitmap {
+    override suspend fun transform(pool: BitmapPool, input: Bitmap, size: Size): Bitmap {
         val width = input.width
         val height = input.height
 

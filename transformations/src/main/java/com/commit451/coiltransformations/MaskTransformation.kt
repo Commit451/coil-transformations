@@ -10,6 +10,7 @@ import androidx.annotation.DrawableRes
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.applyCanvas
 import coil.bitmappool.BitmapPool
+import coil.size.Size
 import coil.transform.Transformation
 
 /**
@@ -31,7 +32,7 @@ class MaskTransformation(
 
     override fun key(): String = "${MaskTransformation::class.java.name}-$maskDrawableRes"
 
-    override suspend fun transform(pool: BitmapPool, input: Bitmap): Bitmap {
+    override suspend fun transform(pool: BitmapPool, input: Bitmap, size: Size): Bitmap {
         val width = input.width
         val height = input.height
 
