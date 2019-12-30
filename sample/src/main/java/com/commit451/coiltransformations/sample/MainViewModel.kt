@@ -8,8 +8,21 @@ import com.commit451.coiltransformations.ColorFilterTransformation
 import com.commit451.coiltransformations.CropTransformation
 import com.commit451.coiltransformations.MaskTransformation
 import com.commit451.coiltransformations.SquareCropTransformation
-import com.commit451.coiltransformations.gpu.*
-import kotlinx.coroutines.*
+import com.commit451.coiltransformations.gpu.BrightnessFilterTransformation
+import com.commit451.coiltransformations.gpu.ContrastFilterTransformation
+import com.commit451.coiltransformations.gpu.InvertFilterTransformation
+import com.commit451.coiltransformations.gpu.KuwaharaFilterTransformation
+import com.commit451.coiltransformations.gpu.PixelationFilterTransformation
+import com.commit451.coiltransformations.gpu.SepiaFilterTransformation
+import com.commit451.coiltransformations.gpu.SketchFilterTransformation
+import com.commit451.coiltransformations.gpu.SwirlFilterTransformation
+import com.commit451.coiltransformations.gpu.ToonFilterTransformation
+import com.commit451.coiltransformations.gpu.VignetteFilterTransformation
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.cancel
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
