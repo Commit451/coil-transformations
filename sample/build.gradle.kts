@@ -40,11 +40,11 @@ dependencies {
 
     implementation("androidx.appcompat:appcompat:1.1.0")
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
-    implementation("androidx.core:core-ktx:1.1.0")
+    implementation("androidx.core:core-ktx:1.2.0")
     implementation("androidx.lifecycle:lifecycle-extensions:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-livedata:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
     implementation("androidx.recyclerview:recyclerview:1.1.0")
 
-    implementation("com.google.android.material:material:1.0.0")
+    implementation("com.google.android.material:material:1.1.0")
 }

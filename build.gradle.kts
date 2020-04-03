@@ -8,10 +8,10 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:3.5.3")
-        classpath("org.jlleitschuh.gradle:ktlint-gradle:9.1.1")
+        classpath("com.android.tools.build:gradle:3.6.1")
+        classpath("org.jlleitschuh.gradle:ktlint-gradle:9.2.1")
         classpath("com.github.dcendents:android-maven-gradle-plugin:2.1")
-        classpath(kotlin("gradle-plugin", version = "1.3.61"))
+        classpath(kotlin("gradle-plugin", version = "1.3.71"))
     }
 }
 
