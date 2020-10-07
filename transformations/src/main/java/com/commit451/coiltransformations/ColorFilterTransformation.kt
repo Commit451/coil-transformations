@@ -2,7 +2,7 @@ package com.commit451.coiltransformations
 
 import android.graphics.*
 import androidx.annotation.ColorInt
-import coil.bitmappool.BitmapPool
+import coil.bitmap.BitmapPool
 import coil.size.Size
 import coil.transform.Transformation
 

@@ -1,7 +1,7 @@
 package com.commit451.coiltransformations
 
 import android.graphics.Bitmap
-import coil.bitmappool.BitmapPool
+import coil.bitmap.BitmapPool
 import coil.size.Size
 import coil.transform.Transformation
 import kotlin.math.max

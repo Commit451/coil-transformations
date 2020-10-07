@@ -2,7 +2,7 @@ package com.commit451.coiltransformations.gpu
 
 import android.content.Context
 import android.graphics.Bitmap
-import coil.bitmappool.BitmapPool
+import coil.bitmap.BitmapPool
 import coil.size.Size
 import coil.transform.Transformation
 import jp.co.cyberagent.android.gpuimage.GPUImage
@@ -26,7 +26,6 @@ abstract class GPUFilterTransformation(
         val gpuImage = GPUImage(context)
         gpuImage.setImage(input)
         gpuImage.setFilter(createFilter())
-        pool.put(input)
         return gpuImage.bitmapWithFilterApplied
     }
 }

@@ -5,23 +5,25 @@ plugins {
 }
 
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(30)
     defaultConfig {
         minSdkVersion(14)
-        targetSdkVersion(29)
+        targetSdkVersion(30)
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    buildToolsVersion = "30.0.2"
     libraryVariants.all {
         generateBuildConfigProvider?.configure { enabled = false }
     }
 }
 
 dependencies {
-    api("io.coil-kt:coil:0.9.5")
+    api("io.coil-kt:coil:0.13.0")
+    api("androidx.core:core-ktx:1.3.2")
 }
 
 apply("https://raw.githubusercontent.com/Commit451/gradle-android-javadocs/1.1.0/gradle-android-javadocs.gradle")
