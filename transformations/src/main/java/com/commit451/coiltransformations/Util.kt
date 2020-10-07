@@ -4,7 +4,7 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Matrix
 import android.graphics.Paint
-import coil.bitmappool.BitmapPool
+import coil.bitmap.BitmapPool
 
 /**
  * Internal utils used by various transformations

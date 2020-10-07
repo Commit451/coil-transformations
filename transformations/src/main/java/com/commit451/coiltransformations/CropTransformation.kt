@@ -3,7 +3,7 @@ package com.commit451.coiltransformations
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.RectF
-import coil.bitmappool.BitmapPool
+import coil.bitmap.BitmapPool
 import coil.size.Size
 import coil.transform.Transformation
 import kotlin.math.max
