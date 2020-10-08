@@ -7,7 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import coil.api.load
+import coil.load
+import com.commit451.coiltransformations.facedetection.CenterOnFaceTransformation
 import com.commit451.coiltransformations.sample.ImageListAdapter.ViewHolder
 
 class ImageListAdapter(
@@ -20,16 +21,21 @@ class ImageListAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
+        var name = item.name
         holder.image.apply {
             load(item.resource) {
                 transformations(item.transformation)
+                val transformation = item.transformation
+                if (transformation is com.commit451.coiltransformations.facedetection.CenterOnFaceTransformation) {
+                    name += " ${transformation.zoom}% Zoom"
+                }
             }
 
             setOnClickListener {
                 setScreen(Screen.Detail(item))
             }
         }
-        holder.text.text = item.name
+        holder.text.text = name
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
