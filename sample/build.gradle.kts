@@ -36,6 +36,7 @@ val lifecycleVersion = "2.0.0"
 dependencies {
     implementation(project(":transformations"))
     implementation(project(":transformations-gpu"))
+    implementation(project(":transformations-face-detection"))
 
     implementation(kotlin("stdlib", KotlinCompilerVersion.VERSION))
 

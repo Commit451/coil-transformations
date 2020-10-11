@@ -9,7 +9,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import coil.api.load
+import coil.load
 
 class MainActivity : AppCompatActivity() {
 
