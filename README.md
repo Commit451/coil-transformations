@@ -39,6 +39,7 @@ From the base library (`transformations`):
 - CropTransformation (top, center, bottom)
 - MaskTransformation
 - SquareCropTransformation
+- NoOpTransformation
 
 From the GPU library (`transformations-gpu`)
 - BrightnessFilterTransformation
@@ -51,6 +52,9 @@ From the GPU library (`transformations-gpu`)
 - SwirlFilterTransformation
 - ToonFilterTransformation
 - VignetteFilterTransformation
+
+From the face detection library (`transformations-center-on-face`)
+- CenterOnFaceTransformation
 
 ## Quick Start
 
@@ -122,6 +126,15 @@ Here, you can preview each of the type of filters.
 - VignetteFilterTransformation
 
 ![VignetteFilterTransformation](preview/images/vignette.png)
+
+- CenterOnFaceTransformation
+
+![CenterOnFaceTransformation](preview/images/COF-no-op-and-zero.png)
+
+![CenterOnFaceTransformation](preview/images/COF-20-and-40.png)
+
+![CenterOnFaceTransformation](preview/images/COF-80-and-100.png)
+
 
 ## Thanks
 Inspired by [Glide Transformations](https://github.com/wasabeef/glide-transformations) by [wasabeef](https://github.com/wasabeef). Thanks of course to [Coil](https://github.com/coil-kt/coil) contributors for making a great image loading library.
