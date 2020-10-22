@@ -1,12 +1,9 @@
 # coil-transformations
-
 Image transformations for [Coil](https://github.com/coil-kt/coil).
 
-[![Build Status](https://travis-ci.org/Commit451/coil-transformations.svg?branch=master)](https://travis-ci.org/Commit451/coil-transformations)
 [![](https://jitpack.io/v/Commit451/coil-transformations.svg)](https://jitpack.io/#Commit451/coil-transformations)
 
 ## Download
-
 Add this in your root `build.gradle` file (**not** your module `build.gradle` file):
 
 ```gradle
@@ -25,9 +22,11 @@ and for GPU (native) transformations (relies on [GPUImage](https://github.com/ca
 ```kotlin
 implementation("com.github.Commit451.coil-transformations:transformations-gpu:latest.version.here")
 ```
-
+and for Google MLKit Face detection transformations:
+```kotlin
+implementation("com.github.Commit451.coil-transformations:transformations-face-detection:latest.version.here")
+```
 ## Supported Transformations
-
 These transformations are already supported in Coil itself (no need for this library):
 - BlurTransformation
 - CircleCropTransformation
@@ -39,7 +38,6 @@ From the base library (`transformations`):
 - CropTransformation (top, center, bottom)
 - MaskTransformation
 - SquareCropTransformation
-- NoOpTransformation
 
 From the GPU library (`transformations-gpu`)
 - BrightnessFilterTransformation
@@ -57,7 +55,6 @@ From the face detection library (`transformations-center-on-face`)
 - CenterOnFaceTransformation
 
 ## Quick Start
-
 To load an image into an `ImageView` with transformations, use the `load` extension function:
 ```kotlin
 imageView.load("https://www.example.com/image.jpg") {
@@ -127,6 +124,8 @@ Here, you can preview each of the type of filters.
 
 ![VignetteFilterTransformation](preview/images/vignette.png)
 
+### `com.github.Commit451.coil-transformations:transformations-face-detection`
+
 - CenterOnFaceTransformation
 
 ![CenterOnFaceTransformation](preview/images/COF-no-op-and-zero.png)
@@ -141,7 +140,7 @@ Inspired by [Glide Transformations](https://github.com/wasabeef/glide-transforma
 
 ## License
 
-    Copyright 2019 Commit 451
+    Copyright 2020 Commit 451
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

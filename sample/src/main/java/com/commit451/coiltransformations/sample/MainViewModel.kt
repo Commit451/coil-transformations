@@ -6,6 +6,7 @@ import android.util.LruCache
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.commit451.coiltransformations.*
+import com.commit451.coiltransformations.facedetection.CenterOnFaceTransformation
 import com.commit451.coiltransformations.gpu.*
 import kotlinx.coroutines.*
 
@@ -32,41 +33,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private fun loadImages() = scope.launch(Dispatchers.IO) {
         val images = mutableListOf<Image>()
         val lruCache = LruCache<String, String>(4 * 1024 * 1024)
-        images += Image(
-                resource = R.drawable.scarlet_witch,
-                transformation = NoOpTransformation()
-        )
-        images += Image(
-                transformation = com.commit451.coiltransformations.facedetection.CenterOnFaceTransformation(lruCache,
-                        0),
-                resource = R.drawable.scarlet_witch
-        )
-        images += Image(
-                transformation = com.commit451.coiltransformations.facedetection.CenterOnFaceTransformation(lruCache,
-                        20),
-                resource = R.drawable.scarlet_witch
-        )
-
-        images += Image(
-                transformation = com.commit451.coiltransformations.facedetection.CenterOnFaceTransformation(lruCache,
-                        40),
-                resource = R.drawable.scarlet_witch
-        )
-        images += Image(
-                transformation = com.commit451.coiltransformations.facedetection.CenterOnFaceTransformation(lruCache,
-                        60),
-                resource = R.drawable.scarlet_witch
-        )
-        images += Image(
-                transformation = com.commit451.coiltransformations.facedetection.CenterOnFaceTransformation(lruCache,
-                        80),
-                resource = R.drawable.scarlet_witch
-        )
-        images += Image(
-                transformation = com.commit451.coiltransformations.facedetection.CenterOnFaceTransformation(lruCache,
-                        100),
-                resource = R.drawable.scarlet_witch
-        )
+        val context = getApplication<Application>()
         images += Image(
             transformation = MaskTransformation(context, R.drawable.mask_starfish)
         )
@@ -110,6 +77,18 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         )
         images += Image(
             transformation = VignetteFilterTransformation(context)
+        )
+        images += Image(
+            transformation = CenterOnFaceTransformation(lruCache, 20),
+            resource = R.drawable.scarlet_witch
+        )
+        images += Image(
+            transformation = CenterOnFaceTransformation(lruCache, 60),
+            resource = R.drawable.scarlet_witch
+        )
+        images += Image(
+            transformation = CenterOnFaceTransformation(lruCache, 100),
+            resource = R.drawable.scarlet_witch
         )
         imagesLiveData.postValue(images)
     }

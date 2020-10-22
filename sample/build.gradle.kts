@@ -1,3 +1,4 @@
+import coiltransformations.targetSdk
 import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
 plugins {
@@ -7,11 +8,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion(30)
+    compileSdkVersion(project.targetSdk)
     defaultConfig {
         applicationId = "com.commit451.coiltransformations.sample"
         minSdkVersion(21)
-        targetSdkVersion(30)
+        targetSdkVersion(project.targetSdk)
         versionCode = 1
         versionName = "1.0.0"
         resConfigs("en")
@@ -28,7 +29,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    buildToolsVersion = "30.0.2"
 }
 
 val lifecycleVersion = "2.0.0"

@@ -1,3 +1,7 @@
+import coiltransformations.coilVersion
+import coiltransformations.minSdk
+import coiltransformations.targetSdk
+
 plugins {
     id("com.android.library")
     id("kotlin-android")
@@ -5,24 +9,23 @@ plugins {
 }
 
 android {
-    compileSdkVersion(30)
+    compileSdkVersion(project.targetSdk)
     defaultConfig {
-        minSdkVersion(14)
-        targetSdkVersion(30)
+        minSdkVersion(project.minSdk)
+        targetSdkVersion(project.targetSdk)
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    buildToolsVersion = "30.0.2"
     libraryVariants.all {
         generateBuildConfigProvider?.configure { enabled = false }
     }
 }
 
 dependencies {
-    api("io.coil-kt:coil:0.13.0")
+    api("io.coil-kt:coil:${project.coilVersion}")
     api("com.google.mlkit:face-detection:16.0.2")
 }
 

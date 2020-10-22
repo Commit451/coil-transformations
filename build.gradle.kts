@@ -1,7 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
-    val kotlinVersion by extra("1.4.10")
     repositories {
         google()
         mavenCentral()
@@ -9,10 +8,9 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:4.2.0-alpha13")
+        classpath("com.android.tools.build:gradle:4.1.0")
         classpath("org.jlleitschuh.gradle:ktlint-gradle:9.2.1")
         classpath("com.github.dcendents:android-maven-gradle-plugin:2.1")
-        classpath(kotlin("gradle-plugin", version = "1.4.10"))
     }
 }
 
