@@ -28,7 +28,7 @@ android {
 }
 
 dependencies {
-    api("io.coil-kt:coil:${project.coilVersion}")
+    api("io.coil-kt:coil-base:${project.coilVersion}")
     api("jp.co.cyberagent.android:gpuimage:2.1.0")
 }
 

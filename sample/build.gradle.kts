@@ -1,3 +1,4 @@
+import coiltransformations.coilVersion
 import coiltransformations.targetSdk
 import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
@@ -40,6 +41,7 @@ dependencies {
     implementation(project(":transformations"))
     implementation(project(":transformations-gpu"))
     implementation(project(":transformations-face-detection"))
+    implementation("io.coil-kt:coil:${project.coilVersion}")
 
     implementation(kotlin("stdlib", KotlinCompilerVersion.VERSION))
 

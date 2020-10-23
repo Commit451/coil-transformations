@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.1] - October 22, 2020
+- Library relies on `coil-base` instead of `coil` so that the singleton dependency is not forced on
+the consumer.
+
 ## [1.0.0] - October 22, 2020
 - 1.0.0 release to coincide with Coil's 1.0.0 release.
 - Added face detection transformation thanks to @brady-aiello

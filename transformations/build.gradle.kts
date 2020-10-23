@@ -28,7 +28,7 @@ android {
 }
 
 dependencies {
-    api("io.coil-kt:coil:${project.coilVersion}")
+    api("io.coil-kt:coil-base:${project.coilVersion}")
     api("androidx.core:core-ktx:1.3.2")
 }
 
