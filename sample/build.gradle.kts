@@ -9,14 +9,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion(project.targetSdk)
+    compileSdk = project.targetSdk
     defaultConfig {
         applicationId = "com.commit451.coiltransformations.sample"
-        minSdkVersion(21)
-        targetSdkVersion(project.targetSdk)
+        minSdk = 21
+        targetSdk = project.targetSdk
         versionCode = 1
         versionName = "1.0.0"
-        resConfigs("en")
     }
     buildTypes {
         getByName("release") {
@@ -45,13 +44,13 @@ dependencies {
 
     implementation(kotlin("stdlib", KotlinCompilerVersion.VERSION))
 
-    implementation("androidx.appcompat:appcompat:1.2.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.0.2")
-    implementation("androidx.core:core-ktx:1.3.2")
+    implementation("androidx.appcompat:appcompat:1.4.1")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
+    implementation("androidx.core:core-ktx:1.7.0")
     implementation("androidx.lifecycle:lifecycle-extensions:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-livedata:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
-    implementation("androidx.recyclerview:recyclerview:1.1.0")
+    implementation("androidx.recyclerview:recyclerview:1.2.1")
 
-    implementation("com.google.android.material:material:1.2.1")
+    implementation("com.google.android.material:material:1.5.0")
 }

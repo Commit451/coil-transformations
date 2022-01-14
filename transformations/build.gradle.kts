@@ -9,10 +9,10 @@ plugins {
 }
 
 android {
-    compileSdkVersion(project.targetSdk)
+    compileSdk = project.targetSdk
     defaultConfig {
-        minSdkVersion(project.minSdk)
-        targetSdkVersion(project.targetSdk)
+        minSdk = project.minSdk
+        targetSdk = project.targetSdk
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     compileOptions {
@@ -29,7 +29,5 @@ android {
 
 dependencies {
     api("io.coil-kt:coil-base:${project.coilVersion}")
-    api("androidx.core:core-ktx:1.3.2")
+    api("androidx.core:core-ktx:1.7.0")
 }
-
-apply("https://raw.githubusercontent.com/Commit451/gradle-android-javadocs/1.1.0/gradle-android-javadocs.gradle")

@@ -13,6 +13,9 @@ internal object Util {
 
     private val DEFAULT_PAINT = Paint(Paint.DITHER_FLAG or Paint.FILTER_BITMAP_FLAG)
 
+    internal val Bitmap.safeConfig: Bitmap.Config
+        get() = config ?: Bitmap.Config.ARGB_8888
+
     /**
      * (Taken from Glide)
      * A potentially expensive operation to crop the given Bitmap so that it fills the given

@@ -35,6 +35,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         val lruCache = LruCache<String, String>(4 * 1024 * 1024)
         val context = getApplication<Application>()
         images += Image(
+            transformation = GrayscaleTransformation()
+        )
+        images += Image(
+            transformation = BlurTransformation(context)
+        )
+        images += Image(
             transformation = MaskTransformation(context, R.drawable.mask_starfish)
         )
         images += Image(
