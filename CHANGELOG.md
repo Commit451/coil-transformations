@@ -1,9 +1,9 @@
 # Changelog
 
-## [1.1.0] - January 14, 2022
+## [1.1.0 - 1.1.2] - January 14, 2022
 - Add `GrayscaleTransformation` and `BlurTransformation` which are removed from Coil 2.0
 - Library relies on `coil-base` instead of `coil` so that the singleton dependency is not forced on
-the consumer.
+the consumer. (The extra releases were dedicated to trying to figure out library distribution)
 
 ## [1.0.0] - October 22, 2020
 - 1.0.0 release to coincide with Coil's 1.0.0 release.
