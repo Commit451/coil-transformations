@@ -12,7 +12,7 @@ class SketchFilterTransformation(
     context: Context
 ) : GPUFilterTransformation(context) {
 
-    override fun key(): String = SketchFilterTransformation::class.java.name
+    override val cacheKey: String = SketchFilterTransformation::class.java.name
 
     override fun createFilter(): GPUImageFilter = GPUImageSketchFilter()
 }

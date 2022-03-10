@@ -4,7 +4,7 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Matrix
 import android.graphics.Paint
-import coil.bitmap.BitmapPool
+import androidx.core.graphics.createBitmap
 
 /**
  * Internal utils used by various transformations
@@ -28,7 +28,7 @@ internal object Util {
      * @param height The height in pixels of the final Bitmap.
      * @return The resized Bitmap (will be recycled if recycled is not null).
      */
-    fun centerCrop(pool: BitmapPool, inBitmap: Bitmap, width: Int, height: Int): Bitmap {
+    fun centerCrop(inBitmap: Bitmap, width: Int, height: Int): Bitmap {
         if (inBitmap.width == width && inBitmap.height == height) {
             return inBitmap
         }
@@ -50,7 +50,7 @@ internal object Util {
         m.setScale(scale, scale)
         m.postTranslate((dx + 0.5f).toInt().toFloat(), (dy + 0.5f).toInt().toFloat())
 
-        val result = pool.get(width, height, inBitmap.config)
+        val result = createBitmap(width, height, inBitmap.safeConfig)
         // We don't add or remove alpha, so keep the alpha setting of the Bitmap we were given.
         setAlpha(inBitmap, result)
 

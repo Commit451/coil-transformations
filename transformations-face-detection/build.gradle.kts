@@ -30,5 +30,5 @@ android {
 
 dependencies {
     api("io.coil-kt:coil-base:${project.coilVersion}")
-    api("com.google.mlkit:face-detection:16.1.3")
+    api("com.google.mlkit:face-detection:16.1.5")
 }

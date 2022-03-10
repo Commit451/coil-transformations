@@ -63,77 +63,7 @@ imageView.load("https://www.example.com/image.jpg") {
 ```
 
 ## Preview
-Here, you can preview each of the type of filters.
-
-### `com.github.Commit451.coil-transformations:transformations`
-- ColorFilterTransformation
-
-![ColorFilterTransformation](preview/images/color-filter.png)
-
-- CropTransformation
-
-![CropTransformation](preview/images/center-crop.png)
-
-- MaskTransformation
-
-![MaskTransformation](preview/images/mask.png)
-
-- SquareCropTransformation
-
-![SquareCropTransformation](preview/images/square-crop.png)
-
-### `com.github.Commit451.coil-transformations:transformations-gpu`
-
-- BrightnessFilterTransformation
-
-![BrightnessFilterTransformation](preview/images/brightness.png)
-
-- ContrastFilterTransformation
-
-![ContrastFilterTransformation](preview/images/contrast.png)
-
-- InvertFilterTransformation
-
-![InvertFilterTransformation](preview/images/invert.png)
-
-- KuwaharaFilterTransformation
-
-![KuwaharaFilterTransformation](preview/images/kuwahara.png)
-
-- PixelationFilterTransformation
-
-![PixelationFilterTransformation](preview/images/pixelation.png)
-
-- SepiaFilterTransformation
-
-![SepiaFilterTransformation](preview/images/sepia.png)
-
-- SketchFilterTransformation
-
-![SketchFilterTransformation](preview/images/sketch.png)
-
-- SwirlFilterTransformation
-
-![SwirlFilterTransformation](preview/images/swirl.png)
-
-- ToonFilterTransformation
-
-![ToonFilterTransformation](preview/images/toon.png)
-
-- VignetteFilterTransformation
-
-![VignetteFilterTransformation](preview/images/vignette.png)
-
-### `com.github.Commit451.coil-transformations:transformations-face-detection`
-
-- CenterOnFaceTransformation
-
-![CenterOnFaceTransformation](preview/images/COF-no-op-and-zero.png)
-
-![CenterOnFaceTransformation](preview/images/COF-20-and-40.png)
-
-![CenterOnFaceTransformation](preview/images/COF-80-and-100.png)
-
+See a preview of the transformations [here](https://github.com/Commit451/coil-transformations/blob/master/preview/preview.md)
 
 ## Thanks
 Inspired by [Glide Transformations](https://github.com/wasabeef/glide-transformations) by [wasabeef](https://github.com/wasabeef). Thanks of course to [Coil](https://github.com/coil-kt/coil) contributors for making a great image loading library.

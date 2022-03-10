@@ -19,7 +19,7 @@ class SwirlFilterTransformation(
     private val center: PointF = PointF(0.5f, 0.5f)
 ) : GPUFilterTransformation(context) {
 
-    override fun key(): String = "${SwirlFilterTransformation::class.java.name}-$radius-$angle-$center"
+    override val cacheKey: String = "${SwirlFilterTransformation::class.java.name}-$radius-$angle-$center"
 
     override fun createFilter(): GPUImageFilter = GPUImageSwirlFilter()
         .apply {

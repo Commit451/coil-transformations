@@ -6,21 +6,18 @@ import android.app.Application
 import android.util.Log
 import coil.Coil
 import coil.ImageLoader
+import coil.memory.MemoryCache
 import coil.util.DebugLogger
 
 class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        Coil.setImageLoader(::buildDefaultImageLoader)
-    }
-
-    private fun buildDefaultImageLoader(): ImageLoader {
-        return ImageLoader.Builder(this)
-                .logger(DebugLogger(level = Log.DEBUG))
-                .availableMemoryPercentage(0.5)
-                .bitmapPoolPercentage(0.5)
-                .crossfade(true)
-                .build()
+        val imageLoader = ImageLoader.Builder(this)
+            .logger(DebugLogger(level = Log.DEBUG))
+            .memoryCache(MemoryCache.Builder(this).maxSizePercent(0.5).build())
+            .crossfade(true)
+            .build()
+        Coil.setImageLoader(imageLoader)
     }
 }

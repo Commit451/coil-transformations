@@ -19,7 +19,7 @@ class ContrastFilterTransformation(
         require(contrast <= 4.0) { "Contrast must be <= 4.0" }
     }
 
-    override fun key(): String = "${ContrastFilterTransformation::class.java.name}-$contrast"
+    override val cacheKey: String = "${ContrastFilterTransformation::class.java.name}-$contrast"
 
     override fun createFilter(): GPUImageFilter = GPUImageContrastFilter()
         .apply {

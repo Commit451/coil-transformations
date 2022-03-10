@@ -4,7 +4,6 @@ import android.graphics.Bitmap
 import android.graphics.Rect
 import android.util.Log
 import android.util.LruCache
-import coil.bitmap.BitmapPool
 import coil.size.Size
 import coil.transform.Transformation
 import com.google.mlkit.vision.common.InputImage
@@ -36,9 +35,9 @@ class CenterOnFaceTransformation constructor(
         private const val TAG = "CenterOnFaceTransform"
     }
 
-    override fun key(): String = CenterOnFaceTransformation::class.java.name + zoom.toString()
+    override val cacheKey: String = CenterOnFaceTransformation::class.java.name + zoom.toString()
 
-    override suspend fun transform(pool: BitmapPool, input: Bitmap, size: Size): Bitmap {
+    override suspend fun transform(input: Bitmap, size: Size): Bitmap {
         require(zoom in 0..100)
         // High-accuracy landmark detection and face classification
         val inputByteArray = input.toByteArray()

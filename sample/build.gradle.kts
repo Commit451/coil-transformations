@@ -1,6 +1,5 @@
 import coiltransformations.coilVersion
 import coiltransformations.targetSdk
-import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
 plugins {
     id("com.android.application")
@@ -41,8 +40,6 @@ dependencies {
     implementation(project(":transformations-gpu"))
     implementation(project(":transformations-face-detection"))
     implementation("io.coil-kt:coil:${project.coilVersion}")
-
-    implementation(kotlin("stdlib", KotlinCompilerVersion.VERSION))
 
     implementation("androidx.appcompat:appcompat:1.4.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.3")

@@ -9,9 +9,10 @@ import android.graphics.drawable.Drawable
 import androidx.annotation.DrawableRes
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.applyCanvas
-import coil.bitmap.BitmapPool
+import androidx.core.graphics.createBitmap
 import coil.size.Size
 import coil.transform.Transformation
+import com.commit451.coiltransformations.Util.safeConfig
 
 /**
  * Mask transformation using another drawable.
@@ -30,13 +31,11 @@ class MaskTransformation(
             }
     }
 
-    override fun key(): String = "${MaskTransformation::class.java.name}-$maskDrawableRes"
+    override val cacheKey: String = "${MaskTransformation::class.java.name}-$maskDrawableRes"
 
-    override suspend fun transform(pool: BitmapPool, input: Bitmap, size: Size): Bitmap {
-        val width = input.width
-        val height = input.height
+    override suspend fun transform(input: Bitmap, size: Size): Bitmap {
 
-        val output = pool.get(width, height, input.config)
+        val output = createBitmap(input.width, input.height, input.safeConfig)
         output.setHasAlpha(true)
 
         val mask = getMaskDrawable(context.applicationContext, maskDrawableRes)
@@ -46,7 +45,6 @@ class MaskTransformation(
             mask.draw(this)
             drawBitmap(input, 0f, 0f, paint)
         }
-        pool.put(input)
         return output
     }
 

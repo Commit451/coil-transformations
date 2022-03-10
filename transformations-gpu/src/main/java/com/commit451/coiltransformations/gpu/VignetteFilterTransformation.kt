@@ -21,7 +21,7 @@ class VignetteFilterTransformation(
     private val end: Float = 0.75f
 ) : GPUFilterTransformation(context) {
 
-    override fun key(): String = "${VignetteFilterTransformation::class.java.name}-$center-$color-$start-$end"
+    override val cacheKey: String = "${VignetteFilterTransformation::class.java.name}-$center-$color-$start-$end"
 
     override fun createFilter(): GPUImageFilter = GPUImageVignetteFilter()
         .apply {

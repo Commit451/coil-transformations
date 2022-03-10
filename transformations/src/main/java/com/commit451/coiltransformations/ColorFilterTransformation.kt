@@ -2,9 +2,10 @@ package com.commit451.coiltransformations
 
 import android.graphics.*
 import androidx.annotation.ColorInt
-import coil.bitmap.BitmapPool
+import androidx.core.graphics.createBitmap
 import coil.size.Size
 import coil.transform.Transformation
+import com.commit451.coiltransformations.Util.safeConfig
 
 /**
  * A [Transformation] that applies a color filter to an image.
@@ -14,14 +15,10 @@ class ColorFilterTransformation(
     @ColorInt private val color: Int
 ) : Transformation {
 
-    override fun key(): String = "${ColorFilterTransformation::class.java.name}-$color"
+    override val cacheKey: String = "${ColorFilterTransformation::class.java.name}-$color"
 
-    override suspend fun transform(pool: BitmapPool, input: Bitmap, size: Size): Bitmap {
-        val width = input.width
-        val height = input.height
-
-        val config = input.config
-        val output = pool.get(width, height, config)
+    override suspend fun transform(input: Bitmap, size: Size): Bitmap {
+        val output = createBitmap(input.width, input.height, input.safeConfig)
 
         val canvas = Canvas(output)
         val paint = Paint()

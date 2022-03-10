@@ -14,7 +14,7 @@ class BrightnessFilterTransformation(
     private val brightness: Float = 0.0f
 ) : GPUFilterTransformation(context) {
 
-    override fun key(): String = "${BrightnessFilterTransformation::class.java.name}-$brightness"
+    override val cacheKey: String = "${BrightnessFilterTransformation::class.java.name}-$brightness"
 
     override fun createFilter(): GPUImageFilter = GPUImageBrightnessFilter()
         .apply {

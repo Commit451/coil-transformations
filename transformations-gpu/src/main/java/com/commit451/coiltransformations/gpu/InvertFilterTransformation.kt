@@ -12,7 +12,7 @@ class InvertFilterTransformation(
     context: Context
 ) : GPUFilterTransformation(context) {
 
-    override fun key(): String = InvertFilterTransformation::class.java.name
+    override val cacheKey: String = InvertFilterTransformation::class.java.name
 
     override fun createFilter(): GPUImageFilter = GPUImageColorInvertFilter()
 }
