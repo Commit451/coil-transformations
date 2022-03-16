@@ -6,7 +6,6 @@ import android.app.Application
 import android.util.Log
 import coil.Coil
 import coil.ImageLoader
-import coil.ImageLoaderFactory
 import coil.memory.MemoryCache
 import coil.util.DebugLogger
 
