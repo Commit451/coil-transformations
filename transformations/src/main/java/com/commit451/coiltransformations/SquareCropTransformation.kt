@@ -13,7 +13,10 @@ class SquareCropTransformation : Transformation {
     override val cacheKey: String = SquareCropTransformation::class.java.name
 
     override suspend fun transform(input: Bitmap, size: Size): Bitmap {
-        val largerSize = max(input.width, input.height)
+        val largerSize = max(
+            size.width.pxOrElse { input.width },
+            size.height.pxOrElse { input.height }
+        )
         return Util.centerCrop(input, largerSize, largerSize)
     }
 }
