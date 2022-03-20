@@ -14,7 +14,7 @@ class PixelationFilterTransformation(
     private val pixel: Float = 10.0f
 ) : GPUFilterTransformation(context) {
 
-    override fun key(): String = "${PixelationFilterTransformation::class.java.name}-$pixel"
+    override val cacheKey: String = "${PixelationFilterTransformation::class.java.name}-$pixel"
 
     override fun createFilter(): GPUImageFilter = GPUImagePixelationFilter()
         .apply {

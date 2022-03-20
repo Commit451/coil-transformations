@@ -1,4 +1,6 @@
 # Changelog
+## [2.0.0] - March 16, 2022
+- Updates to support Coil 2.0
 
 ## [1.1.0 - 1.1.2] - January 14, 2022
 - Add `GrayscaleTransformation` and `BlurTransformation` which are removed from Coil 2.0

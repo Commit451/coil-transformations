@@ -11,7 +11,7 @@ import android.renderscript.RenderScript
 import android.renderscript.ScriptIntrinsicBlur
 import androidx.annotation.RequiresApi
 import androidx.core.graphics.applyCanvas
-import coil.bitmap.BitmapPool
+import androidx.core.graphics.createBitmap
 import coil.size.Size
 import coil.transform.Transformation
 import com.commit451.coiltransformations.Util.safeConfig
@@ -36,14 +36,15 @@ class BlurTransformation @JvmOverloads constructor(
         require(sampling > 0) { "sampling must be > 0." }
     }
 
-    override fun key(): String = "${BlurTransformation::class.java.name}-$radius-$sampling"
+    @Suppress("NullableToStringCall")
+    override val cacheKey = "${BlurTransformation::class.java.name}-$radius-$sampling"
 
-    override suspend fun transform(pool: BitmapPool, input: Bitmap, size: Size): Bitmap {
+    override suspend fun transform(input: Bitmap, size: Size): Bitmap {
         val paint = Paint(Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG)
 
         val scaledWidth = (input.width / sampling).toInt()
         val scaledHeight = (input.height / sampling).toInt()
-        val output = pool.get(scaledWidth, scaledHeight, input.safeConfig)
+        val output = createBitmap(scaledWidth, scaledHeight, input.safeConfig)
         output.applyCanvas {
             scale(1 / sampling, 1 / sampling)
             drawBitmap(input, 0f, 0f, paint)
@@ -70,25 +71,6 @@ class BlurTransformation @JvmOverloads constructor(
         }
 
         return output
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        return other is BlurTransformation &&
-            context == other.context &&
-            radius == other.radius &&
-            sampling == other.sampling
-    }
-
-    override fun hashCode(): Int {
-        var result = context.hashCode()
-        result = 31 * result + radius.hashCode()
-        result = 31 * result + sampling.hashCode()
-        return result
-    }
-
-    override fun toString(): String {
-        return "BlurTransformation(context=$context, radius=$radius, sampling=$sampling)"
     }
 
     private companion object {

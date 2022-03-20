@@ -4,17 +4,16 @@ import android.graphics.Bitmap
 import android.graphics.Rect
 import android.util.Log
 import android.util.LruCache
-import coil.bitmap.BitmapPool
 import coil.size.Size
 import coil.transform.Transformation
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.face.FaceDetection
 import com.google.mlkit.vision.face.FaceDetectorOptions
+import kotlinx.coroutines.suspendCancellableCoroutine
 import java.io.ByteArrayOutputStream
 import java.util.*
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
-import kotlinx.coroutines.suspendCancellableCoroutine
 
 /**
  * Finds the largest face in an image, and center crops around it.
@@ -36,9 +35,9 @@ class CenterOnFaceTransformation constructor(
         private const val TAG = "CenterOnFaceTransform"
     }
 
-    override fun key(): String = CenterOnFaceTransformation::class.java.name + zoom.toString()
+    override val cacheKey: String = CenterOnFaceTransformation::class.java.name + zoom.toString()
 
-    override suspend fun transform(pool: BitmapPool, input: Bitmap, size: Size): Bitmap {
+    override suspend fun transform(input: Bitmap, size: Size): Bitmap {
         require(zoom in 0..100)
         // High-accuracy landmark detection and face classification
         val inputByteArray = input.toByteArray()
@@ -54,10 +53,10 @@ class CenterOnFaceTransformation constructor(
 
         // Initialize FaceDetectorOptions
         val highAccuracyOpts = FaceDetectorOptions.Builder()
-                .setPerformanceMode(FaceDetectorOptions.PERFORMANCE_MODE_ACCURATE)
-                .setLandmarkMode(FaceDetectorOptions.LANDMARK_MODE_ALL)
-                .setClassificationMode(FaceDetectorOptions.CLASSIFICATION_MODE_ALL)
-                .build()
+            .setPerformanceMode(FaceDetectorOptions.PERFORMANCE_MODE_ACCURATE)
+            .setLandmarkMode(FaceDetectorOptions.LANDMARK_MODE_ALL)
+            .setClassificationMode(FaceDetectorOptions.CLASSIFICATION_MODE_ALL)
+            .build()
 
         // Get a face detector.
         val detector = FaceDetection.getClient(highAccuracyOpts)
@@ -100,11 +99,11 @@ class CenterOnFaceTransformation constructor(
      */
     private fun frameBitmap(input: Bitmap, square: Rect): Bitmap {
         return Bitmap.createBitmap(
-                input,
-                square.left,
-                square.top,
-                square.width(),
-                square.height()
+            input,
+            square.left,
+            square.top,
+            square.width(),
+            square.height()
         )
     }
 
@@ -128,19 +127,20 @@ class CenterOnFaceTransformation constructor(
         val centerY = boundingBox.exactCenterY()
 
         val halfWidth = Collections.min(
-                listOf(
-                        centerX,
-                        centerY,
-                        input.width.toFloat() - centerX,
-                        input.height.toFloat() - centerY
-                )
+            listOf(
+                centerX,
+                centerY,
+                input.width.toFloat() - centerX,
+                input.height.toFloat() - centerY
+            )
         )
         val width = halfWidth * 2
         val left = (centerX - halfWidth).toInt()
         val top = (centerY - halfWidth).toInt()
         val right = left + width.toInt()
         val bottom = top + width.toInt()
-        return Rect(left, top, right, bottom
+        return Rect(
+            left, top, right, bottom
         )
     }
 
@@ -300,10 +300,10 @@ class CenterOnFaceTransformation constructor(
         }
 
         return Rect(
-                left,
-                top,
-                right,
-                bottom
+            left,
+            top,
+            right,
+            bottom
         )
     }
 }

@@ -15,7 +15,7 @@ class KuwaharaFilterTransformation(
     private val radius: Int = 25
 ) : GPUFilterTransformation(context) {
 
-    override fun key(): String = "${KuwaharaFilterTransformation::class.java.name}-$radius"
+    override val cacheKey: String = "${KuwaharaFilterTransformation::class.java.name}-$radius"
 
     override fun createFilter(): GPUImageFilter = GPUImageKuwaharaFilter()
         .apply {

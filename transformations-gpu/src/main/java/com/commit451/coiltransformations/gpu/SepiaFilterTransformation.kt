@@ -14,7 +14,7 @@ class SepiaFilterTransformation(
     private val intensity: Float = 1.0f
 ) : GPUFilterTransformation(context) {
 
-    override fun key(): String = "${SepiaFilterTransformation::class.java.name}-$intensity"
+    override val cacheKey: String = "${SepiaFilterTransformation::class.java.name}-$intensity"
 
     override fun createFilter(): GPUImageFilter = GPUImageSepiaToneFilter()
         .apply {

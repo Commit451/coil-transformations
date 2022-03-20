@@ -16,7 +16,7 @@ class ToonFilterTransformation(
     private val quantizationLevels: Float = 10.0f
 ) : GPUFilterTransformation(context) {
 
-    override fun key(): String = "${ToonFilterTransformation::class.java.name}-$threshold-$quantizationLevels"
+    override val cacheKey: String = "${ToonFilterTransformation::class.java.name}-$threshold-$quantizationLevels"
 
     override fun createFilter(): GPUImageFilter = GPUImageToonFilter()
         .apply {

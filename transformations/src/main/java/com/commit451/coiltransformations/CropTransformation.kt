@@ -3,9 +3,10 @@ package com.commit451.coiltransformations
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.RectF
-import coil.bitmap.BitmapPool
+import androidx.core.graphics.createBitmap
 import coil.size.Size
 import coil.transform.Transformation
+import com.commit451.coiltransformations.Util.safeConfig
 import kotlin.math.max
 
 /**
@@ -22,14 +23,13 @@ class CropTransformation(
         BOTTOM
     }
 
-    override fun key(): String = "${CropTransformation::class.java.name}-$cropType"
+    override val cacheKey: String = "${CropTransformation::class.java.name}-$cropType"
 
-    override suspend fun transform(pool: BitmapPool, input: Bitmap, size: Size): Bitmap {
+    override suspend fun transform(input: Bitmap, size: Size): Bitmap {
         val width = input.width
         val height = input.height
 
-        val config = if (input.config != null) input.config else Bitmap.Config.ARGB_8888
-        val output = pool.get(width, height, config)
+        val output = createBitmap(width, height, input.safeConfig)
 
         output.setHasAlpha(true)
 
@@ -46,7 +46,6 @@ class CropTransformation(
         val canvas = Canvas(output)
         canvas.drawBitmap(input, null, targetRect, null)
 
-        pool.put(input)
         return output
     }
 
