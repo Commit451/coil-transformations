@@ -5,10 +5,10 @@ buildscript {
         maven("https://plugins.gradle.org/m2/")
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:7.1.2")
-        classpath("org.jlleitschuh.gradle:ktlint-gradle:10.2.1")
+        classpath("com.android.tools.build:gradle:7.2.0")
+        classpath("org.jlleitschuh.gradle:ktlint-gradle:10.3.0")
         classpath("com.vanniktech:gradle-maven-publish-plugin:0.19.0")
-        classpath(kotlin("gradle-plugin", version = "1.6.10"))
+        classpath(kotlin("gradle-plugin", version = "1.6.20"))
     }
 }
 
