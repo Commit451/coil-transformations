@@ -6,8 +6,9 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("org.jlleitschuh.gradle.ktlint")
-    id("com.vanniktech.maven.publish")
 }
+
+apply(from = "../publish.gradle")
 
 android {
     compileSdk = project.targetSdk
