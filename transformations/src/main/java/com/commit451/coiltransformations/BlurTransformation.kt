@@ -1,42 +1,31 @@
-@file:Suppress("unused")
-
 package com.commit451.coiltransformations
 
-import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Paint
-import android.renderscript.Allocation
-import android.renderscript.Element
-import android.renderscript.RenderScript
-import android.renderscript.ScriptIntrinsicBlur
-import androidx.annotation.RequiresApi
 import androidx.core.graphics.applyCanvas
 import androidx.core.graphics.createBitmap
 import coil.size.Size
 import coil.transform.Transformation
 import com.commit451.coiltransformations.Util.safeConfig
+import com.google.android.renderscript.Toolkit
 
 /**
  * A [Transformation] that applies a Gaussian blur to an image.
  *
- * @param context The [Context] used to create a [RenderScript] instance.
  * @param radius The radius of the blur.
  * @param sampling The sampling multiplier used to scale the image. Values > 1
  *  will downscale the image. Values between 0 and 1 will upscale the image.
  */
-@RequiresApi(18)
-class BlurTransformation @JvmOverloads constructor(
-    private val context: Context,
-    private val radius: Float = DEFAULT_RADIUS,
+data class BlurTransformation @JvmOverloads constructor(
+    private val radius: Int = DEFAULT_RADIUS,
     private val sampling: Float = DEFAULT_SAMPLING
 ) : Transformation {
 
     init {
-        require(radius in 0.0..25.0) { "radius must be in [0, 25]." }
+        require(radius in 1..25) { "radius must be in [1, 25]." }
         require(sampling > 0) { "sampling must be > 0." }
     }
 
-    @Suppress("NullableToStringCall")
     override val cacheKey = "${BlurTransformation::class.java.name}-$radius-$sampling"
 
     override suspend fun transform(input: Bitmap, size: Size): Bitmap {
@@ -50,31 +39,11 @@ class BlurTransformation @JvmOverloads constructor(
             drawBitmap(input, 0f, 0f, paint)
         }
 
-        var script: RenderScript? = null
-        var tmpInt: Allocation? = null
-        var tmpOut: Allocation? = null
-        var blur: ScriptIntrinsicBlur? = null
-        try {
-            script = RenderScript.create(context)
-            tmpInt = Allocation.createFromBitmap(script, output, Allocation.MipmapControl.MIPMAP_NONE, Allocation.USAGE_SCRIPT)
-            tmpOut = Allocation.createTyped(script, tmpInt.type)
-            blur = ScriptIntrinsicBlur.create(script, Element.U8_4(script))
-            blur.setRadius(radius)
-            blur.setInput(tmpInt)
-            blur.forEach(tmpOut)
-            tmpOut.copyTo(output)
-        } finally {
-            script?.destroy()
-            tmpInt?.destroy()
-            tmpOut?.destroy()
-            blur?.destroy()
-        }
-
-        return output
+        return Toolkit.blur(output, radius)
     }
 
     private companion object {
-        private const val DEFAULT_RADIUS = 10f
+        private const val DEFAULT_RADIUS = 10
         private const val DEFAULT_SAMPLING = 1f
     }
 }
