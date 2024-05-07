@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.RectF
 import androidx.core.graphics.createBitmap
 import coil.size.Size
+import coil.size.pxOrElse
 import coil.transform.Transformation
 import com.commit451.coiltransformations.Util.safeConfig
 import kotlin.math.max
@@ -26,8 +27,8 @@ class CropTransformation(
     override val cacheKey: String = "${CropTransformation::class.java.name}-$cropType"
 
     override suspend fun transform(input: Bitmap, size: Size): Bitmap {
-        val width = input.width
-        val height = input.height
+        val width = size.width.pxOrElse { input.width }
+        val height = size.height.pxOrElse { input.height }
 
         val output = createBitmap(width, height, input.safeConfig)
 
