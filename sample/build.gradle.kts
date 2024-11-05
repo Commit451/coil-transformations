@@ -5,10 +5,10 @@ import coiltransformations.targetSdk
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    id("org.jlleitschuh.gradle.ktlint")
 }
 
 android {
+    namespace = "com.commit451.coiltransformations.sample"
     compileSdk = project.targetSdk
     defaultConfig {
         applicationId = "com.commit451.coiltransformations.sample"

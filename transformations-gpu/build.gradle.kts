@@ -5,12 +5,12 @@ import coiltransformations.targetSdk
 plugins {
     id("com.android.library")
     id("kotlin-android")
-    id("org.jlleitschuh.gradle.ktlint")
 }
 
 apply(from = "../publish.gradle")
 
 android {
+    namespace = "com.commit451.coiltransformations.gpu"
     compileSdk = project.targetSdk
     defaultConfig {
         minSdk = project.minSdk
