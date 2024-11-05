@@ -1,7 +1,7 @@
 package com.commit451.coiltransformations.sample
 
 import androidx.annotation.DrawableRes
-import coil.transform.Transformation
+import coil3.transform.Transformation
 
 data class Image(
     val transformation: Transformation,

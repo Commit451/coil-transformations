@@ -1,4 +1,7 @@
 # Changelog
+## [3.0.0] - November 5, 2024
+- Updates to support Coil 3.0
+
 ## [2.0.0] - March 16, 2022
 - Updates to support Coil 2.0
 

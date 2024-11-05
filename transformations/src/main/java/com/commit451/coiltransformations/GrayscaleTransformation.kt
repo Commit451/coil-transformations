@@ -7,14 +7,14 @@ import android.graphics.ColorMatrixColorFilter
 import android.graphics.Paint
 import androidx.core.graphics.applyCanvas
 import androidx.core.graphics.createBitmap
-import coil.size.Size
-import coil.transform.Transformation
+import coil3.size.Size
+import coil3.transform.Transformation
 import com.commit451.coiltransformations.Util.safeConfig
 
 /**
  * A [Transformation] that converts an image to shades of gray.
  */
-class GrayscaleTransformation : Transformation {
+class GrayscaleTransformation : Transformation() {
 
     override val cacheKey: String = GrayscaleTransformation::class.java.name
 

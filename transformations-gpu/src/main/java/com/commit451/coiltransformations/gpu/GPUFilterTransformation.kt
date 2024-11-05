@@ -2,8 +2,8 @@ package com.commit451.coiltransformations.gpu
 
 import android.content.Context
 import android.graphics.Bitmap
-import coil.size.Size
-import coil.transform.Transformation
+import coil3.size.Size
+import coil3.transform.Transformation
 import jp.co.cyberagent.android.gpuimage.GPUImage
 import jp.co.cyberagent.android.gpuimage.filter.GPUImageFilter
 
@@ -14,7 +14,7 @@ import jp.co.cyberagent.android.gpuimage.filter.GPUImageFilter
  */
 abstract class GPUFilterTransformation(
     private val context: Context
-) : Transformation {
+) : Transformation() {
 
     /**
      * Create the [GPUImageFilter] to apply to this [Transformation]

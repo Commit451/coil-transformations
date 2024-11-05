@@ -3,8 +3,8 @@ package com.commit451.coiltransformations
 import android.graphics.*
 import androidx.annotation.ColorInt
 import androidx.core.graphics.createBitmap
-import coil.size.Size
-import coil.transform.Transformation
+import coil3.size.Size
+import coil3.transform.Transformation
 import com.commit451.coiltransformations.Util.safeConfig
 
 /**
@@ -13,7 +13,7 @@ import com.commit451.coiltransformations.Util.safeConfig
  */
 class ColorFilterTransformation(
     @ColorInt private val color: Int
-) : Transformation {
+) : Transformation() {
 
     override val cacheKey: String = "${ColorFilterTransformation::class.java.name}-$color"
 

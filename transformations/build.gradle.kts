@@ -18,18 +18,15 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
-    }
-    libraryVariants.all {
-        generateBuildConfigProvider?.configure { enabled = false }
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 }
 
 dependencies {
-    api("io.coil-kt:coil-base:${project.coilVersion}")
-    api("androidx.core:core-ktx:1.7.0")
+    api("io.coil-kt.coil3:coil-core:${project.coilVersion}")
+    api("androidx.core:core-ktx:1.15.0")
 }

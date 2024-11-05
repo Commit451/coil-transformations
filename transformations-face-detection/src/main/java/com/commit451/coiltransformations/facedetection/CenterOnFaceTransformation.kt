@@ -4,8 +4,8 @@ import android.graphics.Bitmap
 import android.graphics.Rect
 import android.util.Log
 import android.util.LruCache
-import coil.size.Size
-import coil.transform.Transformation
+import coil3.size.Size
+import coil3.transform.Transformation
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.face.FaceDetection
 import com.google.mlkit.vision.face.FaceDetectorOptions
@@ -29,7 +29,7 @@ import kotlin.coroutines.resumeWithException
 class CenterOnFaceTransformation constructor(
     private val cache: LruCache<String, String>? = null,
     val zoom: Int
-) : Transformation {
+) : Transformation() {
 
     companion object {
         private const val TAG = "CenterOnFaceTransform"

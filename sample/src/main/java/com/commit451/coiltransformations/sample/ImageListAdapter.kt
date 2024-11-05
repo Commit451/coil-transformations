@@ -7,8 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
-import com.commit451.coiltransformations.facedetection.CenterOnFaceTransformation
+import coil3.load
+import coil3.request.transformations
 import com.commit451.coiltransformations.sample.ImageListAdapter.ViewHolder
 
 class ImageListAdapter(

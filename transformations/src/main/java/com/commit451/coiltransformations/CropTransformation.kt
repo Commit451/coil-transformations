@@ -4,9 +4,9 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.RectF
 import androidx.core.graphics.createBitmap
-import coil.size.Size
-import coil.size.pxOrElse
-import coil.transform.Transformation
+import coil3.size.Size
+import coil3.size.pxOrElse
+import coil3.transform.Transformation
 import com.commit451.coiltransformations.Util.safeConfig
 import kotlin.math.max
 
@@ -16,7 +16,7 @@ import kotlin.math.max
  */
 class CropTransformation(
     private val cropType: CropType = CropType.CENTER
-) : Transformation {
+) : Transformation() {
 
     enum class CropType {
         TOP,

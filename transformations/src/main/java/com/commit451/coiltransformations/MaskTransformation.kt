@@ -11,8 +11,8 @@ import androidx.annotation.DrawableRes
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.applyCanvas
 import androidx.core.graphics.createBitmap
-import coil.size.Size
-import coil.transform.Transformation
+import coil3.size.Size
+import coil3.transform.Transformation
 import com.commit451.coiltransformations.Util.safeConfig
 import kotlin.math.max
 
@@ -21,7 +21,7 @@ import kotlin.math.max
  * @param context context for loading the drawable
  * @param maskDrawableRes the drawable resource to use as the mask
  */
-class MaskTransformation(private val context: Context, @DrawableRes val maskDrawableRes: Int) : Transformation {
+class MaskTransformation(private val context: Context, @DrawableRes val maskDrawableRes: Int) : Transformation() {
 
     companion object {
         private val paint = Paint(Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG).apply {

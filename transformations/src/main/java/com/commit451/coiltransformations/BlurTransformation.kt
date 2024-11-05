@@ -12,8 +12,8 @@ import android.renderscript.ScriptIntrinsicBlur
 import androidx.annotation.RequiresApi
 import androidx.core.graphics.applyCanvas
 import androidx.core.graphics.createBitmap
-import coil.size.Size
-import coil.transform.Transformation
+import coil3.size.Size
+import coil3.transform.Transformation
 import com.commit451.coiltransformations.Util.safeConfig
 
 /**
@@ -29,7 +29,7 @@ class BlurTransformation @JvmOverloads constructor(
     private val context: Context,
     private val radius: Float = DEFAULT_RADIUS,
     private val sampling: Float = DEFAULT_SAMPLING
-) : Transformation {
+) : Transformation() {
 
     init {
         require(radius in 0.0..25.0) { "radius must be in [0, 25]." }
