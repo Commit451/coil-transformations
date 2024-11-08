@@ -1,19 +1,15 @@
-import coiltransformations.coilVersion
-import coiltransformations.minSdk
-import coiltransformations.targetSdk
-
 plugins {
-    id("com.android.application")
-    id("kotlin-android")
+    alias(libs.plugins.com.android.application)
+    alias(libs.plugins.org.jetbrains.kotlin.android)
 }
 
 android {
     namespace = "com.commit451.coiltransformations.sample"
-    compileSdk = project.targetSdk
+    compileSdk = 35
     defaultConfig {
         applicationId = "com.commit451.coiltransformations.sample"
-        minSdk = project.minSdk
-        targetSdk = project.targetSdk
+        minSdk = 21
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0.0"
     }
@@ -25,28 +21,23 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
-    }
+}
+
+kotlin {
+    jvmToolchain(17)
 }
 
 dependencies {
     implementation(project(":transformations"))
     implementation(project(":transformations-gpu"))
     implementation(project(":transformations-face-detection"))
-    implementation("io.coil-kt.coil3:coil-compose:${project.coilVersion}")
+    implementation(libs.coil.compose)
 
-    implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.2.0")
-    implementation("androidx.core:core-ktx:1.15.0")
-    implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.7")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
-    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation(libs.constraintlayout)
+    implementation(libs.lifecycle.extensions)
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.recyclerview)
 
-    implementation("com.google.android.material:material:1.12.0")
+    implementation(libs.material)
 }

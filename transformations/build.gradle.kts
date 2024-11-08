@@ -1,32 +1,35 @@
-import coiltransformations.coilVersion
-import coiltransformations.minSdk
-import coiltransformations.targetSdk
+import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
 
 plugins {
-    id("com.android.library")
-    id("kotlin-android")
+    alias(libs.plugins.com.android.library)
+    alias(libs.plugins.org.jetbrains.kotlin.android)
+    alias(libs.plugins.maven.publish)
 }
-
-apply(from = "../publish.gradle")
 
 android {
     namespace = "com.commit451.coiltransformations"
-    compileSdk = project.targetSdk
+    compileSdk = 35
     defaultConfig {
-        minSdk = project.minSdk
-        targetSdk = project.targetSdk
+        minSdk = 21
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 }
 
+kotlin {
+    jvmToolchain(17)
+}
+
 dependencies {
-    api("io.coil-kt.coil3:coil-core:${project.coilVersion}")
-    api("androidx.core:core-ktx:1.15.0")
+    api(libs.coil.core)
+    api(libs.core.ktx)
+}
+
+mavenPublishing {
+    configure(
+        AndroidSingleVariantLibrary(
+            variant = "release",
+            sourcesJar = true,
+            publishJavadocJar = true,
+        )
+    )
 }

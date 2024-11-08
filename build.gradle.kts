@@ -1,18 +1,6 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath(kotlin("gradle-plugin", version = "1.9.20"))
-        classpath("com.android.tools.build:gradle:8.7.2")
-        classpath("com.vanniktech:gradle-maven-publish-plugin:0.19.0")
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
+plugins {
+    alias(libs.plugins.com.android.application) apply false
+    alias(libs.plugins.com.android.library) apply false
+    alias(libs.plugins.org.jetbrains.kotlin.android) apply false
+    alias(libs.plugins.maven.publish) apply false
 }
