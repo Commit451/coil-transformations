@@ -1,4 +1,5 @@
 import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
+import com.vanniktech.maven.publish.SonatypeHost
 
 plugins {
     alias(libs.plugins.com.android.library)
@@ -32,4 +33,8 @@ mavenPublishing {
             publishJavadocJar = true,
         )
     )
+    publishToMavenCentral(SonatypeHost.S01)
+    if (System.getenv("RELEASE_SIGNING_ENABLED") == "true") {
+        signAllPublications()
+    }
 }
