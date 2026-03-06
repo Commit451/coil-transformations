@@ -3,7 +3,6 @@ import com.vanniktech.maven.publish.SonatypeHost
 
 plugins {
     alias(libs.plugins.com.android.library)
-    alias(libs.plugins.org.jetbrains.kotlin.android)
     alias(libs.plugins.maven.publish)
 }
 
@@ -16,9 +15,6 @@ android {
     }
 }
 
-kotlin {
-    jvmToolchain(17)
-}
 
 dependencies {
     api(libs.coil.core)
@@ -33,7 +29,7 @@ mavenPublishing {
             publishJavadocJar = true,
         )
     )
-    publishToMavenCentral(SonatypeHost.S01)
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
     if (System.getenv("RELEASE_SIGNING_ENABLED") == "true") {
         signAllPublications()
     }
