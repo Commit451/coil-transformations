@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.com.android.application)
-    alias(libs.plugins.org.jetbrains.kotlin.android)
 }
 
 android {
@@ -23,9 +22,6 @@ android {
     }
 }
 
-kotlin {
-    jvmToolchain(17)
-}
 
 dependencies {
     implementation(project(":transformations"))

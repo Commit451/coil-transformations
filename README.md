@@ -1,30 +1,20 @@
 # coil-transformations
 Image transformations for [Coil](https://github.com/coil-kt/coil).
 
-[![](https://jitpack.io/v/Commit451/coil-transformations.svg)](https://jitpack.io/#Commit451/coil-transformations)
+[![Build](https://github.com/Commit451/coil-transformations/actions/workflows/ci.yml/badge.svg)](https://github.com/Commit451/coil-transformations/actions/workflows/ci.yml) [![Maven Central](https://img.shields.io/maven-central/v/com.commit451.coiltransformations/transformations.svg?label=Maven%20Central)](https://central.sonatype.com/search?q=g:com.commit451.coiltransformations)
 
 ## Download
-Add this in your root `build.gradle` file (**not** your module `build.gradle` file):
-
-```gradle
-allprojects {
-	repositories {
-		...
-		maven { url "https://jitpack.io" }
-	}
-}
-```
-Then, add the library to your app `build.gradle`
+Add the library to your app `build.gradle`:
 ```kotlin
-implementation("com.github.Commit451.coil-transformations:transformations:latest.version.here")
+implementation("com.commit451.coiltransformations:transformations:latest.version.here")
 ```
 and for GPU (native) transformations (relies on [GPUImage](https://github.com/cats-oss/android-gpuimage)):
 ```kotlin
-implementation("com.github.Commit451.coil-transformations:transformations-gpu:latest.version.here")
+implementation("com.commit451.coiltransformations:transformations-gpu:latest.version.here")
 ```
 and for Google MLKit Face detection transformations:
 ```kotlin
-implementation("com.github.Commit451.coil-transformations:transformations-face-detection:latest.version.here")
+implementation("com.commit451.coiltransformations:transformations-face-detection:latest.version.here")
 ```
 ## Supported Transformations
 These transformations are already supported in Coil itself (no need for this library):
@@ -63,7 +53,7 @@ imageView.load("https://www.example.com/image.jpg") {
 ```
 
 ## Preview
-See a preview of the transformations [here](https://github.com/Commit451/coil-transformations/blob/master/preview/preview.md)
+See a preview of the transformations [here](https://github.com/Commit451/coil-transformations/blob/main/preview/preview.md)
 
 ## Thanks
 Inspired by [Glide Transformations](https://github.com/wasabeef/glide-transformations) by [wasabeef](https://github.com/wasabeef). Thanks of course to [Coil](https://github.com/coil-kt/coil) contributors for making a great image loading library.
