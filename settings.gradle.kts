@@ -18,5 +18,6 @@ include(
     ":transformations",
     ":transformations-face-detection",
     ":transformations-gpu",
-    ":sample",
+    ":composeApp",
+    ":androidApp",
 )

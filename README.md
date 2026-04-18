@@ -22,14 +22,17 @@ These transformations are already supported in Coil itself (no need for this lib
 - RoundedCornersTransformation
 
 From the base library (`transformations`):
-- BlurTransformation
 - ColorFilterTransformation
 - CropTransformation (top, center, bottom)
 - GrayscaleTransformation
-- MaskTransformation
 - SquareCropTransformation
 
+**Android only**
+- BlurTransformation
+- MaskTransformation
+
 From the GPU library (`transformations-gpu`)
+**Android only**
 - BrightnessFilterTransformation
 - ContrastFilterTransformation
 - InvertFilterTransformation
@@ -42,14 +45,25 @@ From the GPU library (`transformations-gpu`)
 - VignetteFilterTransformation
 
 From the face detection library (`transformations-center-on-face`)
+**Android only**
 - CenterOnFaceTransformation
 
 ## Quick Start
-To load an image into an `ImageView` with transformations, use the `load` extension function:
+To load an image into a Composable with transformations:
 ```kotlin
-imageView.load("https://www.example.com/image.jpg") {
-    transformations(BlurTransformation(), CircleCropTransformation()) // You can add as many as desired
-}
+AsyncImage(
+    model = ImageRequest.Builder(LocalPlatformContext.current)
+        .data(imageUrl)
+        .transformations(GrayscaleTransformation())
+        .crossfade(true)
+        .build(),
+    contentDescription = sample.name,
+    contentScale = ContentScale.Crop,
+    modifier = Modifier
+        .fillMaxWidth()
+        .aspectRatio(1f)
+        .clip(RoundedCornerShape(8.dp)),
+)
 ```
 
 ## Preview
@@ -60,7 +74,7 @@ Inspired by [Glide Transformations](https://github.com/wasabeef/glide-transforma
 
 ## License
 
-    Copyright 2024 Commit 451
+    Copyright 2026 Commit 451
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
