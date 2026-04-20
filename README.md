@@ -15,12 +15,14 @@ implementation("com.commit451.coiltransformations:transformations:latest.version
 and for GPU (native) transformations (relies on [GPUImage](https://github.com/cats-oss/android-gpuimage)):
 
 ```kotlin
+# Android only
 implementation("com.commit451.coiltransformations:transformations-gpu:latest.version.here")
 ```
 
 and for Google MLKit Face detection transformations:
 
 ```kotlin
+# Android only
 implementation("com.commit451.coiltransformations:transformations-face-detection:latest.version.here")
 ```
 
